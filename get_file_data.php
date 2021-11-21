@@ -9,7 +9,7 @@ interface loaderInterface {
 class xml_loader implements loaderInterface {
     
     private $file;
-    private $xml;
+    private $data;
     
     public function __construct(string $file) {
         $this->file = $file;
@@ -17,7 +17,7 @@ class xml_loader implements loaderInterface {
     
     public function load() {
         //get file contents and save
-        $this->xml = new SimpleXMLElement($this->file);
+        $this->data = new SimpleXMLElement($this->file);
   
     }
     
@@ -31,7 +31,7 @@ class xml_loader implements loaderInterface {
         
         echo "<tbody>"; //
         //a loop to render items from xml file to webpage
-        foreach ($this->xml->item as $item) {
+        foreach ($this->data->item as $item) {
             echo "<tr>";
             echo "<td>".$item->first_name."</td>";
             echo "<td>".$item->age."</td>";
